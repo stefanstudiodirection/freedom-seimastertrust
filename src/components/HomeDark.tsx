@@ -127,11 +127,6 @@ export const HomeDark: React.FC = () => {
               backgroundImage="https://api.builder.io/api/v1/image/assets/TEMP/ca2cd3deda67d27f0470bffdcaa474fd18a319eb?placeholderIfAbsent=true"
               isWide={true}
             />
-            <PromotionCard
-              title="Limited Time: Zero Fees on Contributions"
-              backgroundImage="https://api.builder.io/api/v1/image/assets/TEMP/ca2cd3deda67d27f0470bffdcaa474fd18a319eb?placeholderIfAbsent=true"
-              isWide={true}
-            />
             {showAllPromotions && (
               <>
                 <PromotionCard
