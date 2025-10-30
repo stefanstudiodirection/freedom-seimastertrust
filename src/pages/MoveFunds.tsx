@@ -25,13 +25,6 @@ const currencies: Record<string, Currency> = {
   AUD: { code: 'AUD', symbol: '$', flag: '🇦🇺', locale: 'en-AU' },
   JPY: { code: 'JPY', symbol: '¥', flag: '🇯🇵', locale: 'ja-JP' },
   CHF: { code: 'CHF', symbol: '₣', flag: '🇨🇭', locale: 'de-CH' },
-  SEK: { code: 'SEK', symbol: 'kr', flag: '🇸🇪', locale: 'sv-SE' },
-  NOK: { code: 'NOK', symbol: 'kr', flag: '🇳🇴', locale: 'nb-NO' },
-  DKK: { code: 'DKK', symbol: 'kr', flag: '🇩🇰', locale: 'da-DK' },
-  PLN: { code: 'PLN', symbol: 'zł', flag: '🇵🇱', locale: 'pl-PL' },
-  CZK: { code: 'CZK', symbol: 'Kč', flag: '🇨🇿', locale: 'cs-CZ' },
-  HUF: { code: 'HUF', symbol: 'Ft', flag: '🇭🇺', locale: 'hu-HU' },
-  RSD: { code: 'RSD', symbol: 'дин', flag: '🇷🇸', locale: 'sr-RS' },
 };
 
 export const MoveFunds: React.FC = () => {
@@ -117,7 +110,7 @@ export const MoveFunds: React.FC = () => {
                 <SelectValue>
                   {currency} ({currencies[currency].symbol})
                 </SelectValue>
-                <ChevronDown className="w-4 h-4 ml-1" />
+                {/* <ChevronDown className="w-4 h-4 ml-1" /> */}
               </div>
             </SelectTrigger>
             <SelectContent className="bg-[#211E1E] border-[#2a2626] text-white">
