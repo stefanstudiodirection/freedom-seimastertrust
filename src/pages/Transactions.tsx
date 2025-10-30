@@ -56,19 +56,6 @@ const Transactions: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-white pb-24">
       {/* Status Bar */}
-      <div className="flex justify-between items-center px-6 pt-3 pb-2">
-        <span className="text-white text-[15px]">9:41</span>
-        <div className="flex gap-1 items-center">
-          <div className="flex flex-col gap-[2px]">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="w-[3px] h-[3px] bg-white rounded-full" />
-            ))}
-          </div>
-          <div className="w-4 h-3 border border-white rounded-sm relative">
-            <div className="absolute inset-[1px] bg-white" />
-          </div>
-        </div>
-      </div>
 
       {/* Header */}
       <div className="px-6 pt-4 pb-6">
