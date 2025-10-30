@@ -57,7 +57,7 @@ export const SelectDestination: React.FC = () => {
           <div className="bg-[#211E1E] rounded-lg p-4 flex items-center gap-3 border-2 border-[#A488F5]">
             <div 
               className="w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: accounts[sourceAccount].color }}
+              style={{ color: accounts[sourceAccount].color, backgroundColor: `#000` }}
             >
               <span className="text-2xl">{accounts[sourceAccount].icon}</span>
             </div>
