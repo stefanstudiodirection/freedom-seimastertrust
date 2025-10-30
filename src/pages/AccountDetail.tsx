@@ -137,7 +137,7 @@ const AccountDetail: React.FC = () => {
           <div className="mb-2 text-sm opacity-50">{config.display}</div>
           <div className="text-2xl mb-1 font-semibold">{config.display}</div>
           <div className="mb-4 text-sm opacity-80">{config.subtitle}</div>
-          <div className="rounded-lg bg-[#E4B33D] flex items-center justify-between px-4 py-3 mb-4">
+          <div className="rounded-lg bg-[#211E1E] flex items-center justify-between px-4 py-3 mb-4">
             <div className="flex items-center gap-2">{/* TODO: Icon if needed */}
               <span className="font-medium">Balance</span>
             </div>
@@ -165,7 +165,7 @@ const AccountDetail: React.FC = () => {
             <div className="flex w-full justify-between gap-2 mb-6">
               {config.actions.map(action => (
                 <div key={action.label} className="flex flex-col items-center text-yellow-300 text-xs font-medium gap-1 w-full">
-                  <button className="bg-[#181818] w-12 h-12 rounded-lg flex items-center justify-center mb-1"><span className="text-lg">{action.icon}</span></button>
+                  <button className="bg-[#E4B33D] w-12 h-12 rounded-lg flex items-center justify-center mb-1"><span className="text-lg">{action.icon}</span></button>
                   {action.label}
                 </div>
               ))}
