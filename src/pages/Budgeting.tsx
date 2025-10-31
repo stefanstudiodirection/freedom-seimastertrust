@@ -15,6 +15,7 @@ import {
   ChartConfig,
 } from "@/components/ui/chart";
 import { PieChart, Pie, Cell, Label } from "recharts";
+import { BottomNavigation } from "@/components/BottomNavigation";
 
 interface BudgetCategory {
   id: string;
@@ -381,6 +382,9 @@ const Budgeting: React.FC = () => {
               ))}
             </div>
           )}
+        </div>
+        <div className="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto">
+          <BottomNavigation />
         </div>
       </div>
     </div>
