@@ -206,7 +206,18 @@ const AccountDetail: React.FC = () => {
           )}
           {/* TRANSACTIONS */}
           <div className="mt-6">
-            <div className="font-semibold mb-3">Transactions</div>
+            <div className="flex items-center justify-between mb-4">
+						<h2 className="text-lg font-semibold text-foreground">
+							Transactions
+						</h2>
+						<button
+							className="text-sm text-[#A488F5] font-medium"
+							onClick={() => navigate("/budget")}
+						>
+							View budget
+						</button>
+					</div>
+            {/* <div className="font-semibold mb-3">Transactions</div> */}
             {filteredTransactions.length === 0 ? (
               <div className="opacity-50 text-sm">No transactions</div>
             ) : (
