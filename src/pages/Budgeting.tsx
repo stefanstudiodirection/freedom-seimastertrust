@@ -328,7 +328,7 @@ const Budgeting: React.FC = () => {
 								dataKey="amount"
 								nameKey="category"
 								innerRadius={60}
-								strokeWidth={5}
+								strokeWidth={3}
 							>
 								<Label
 									content={({ viewBox }) => {
