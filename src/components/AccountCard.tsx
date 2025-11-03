@@ -68,7 +68,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({
 			className={`w-full ${getBackgroundColor()} ${getPaddingClass()} ${getZIndex()} rounded-[9px] cursor-pointer transition-opacity relative`}
 		>
 			{/* Top section: Logo | Balance */}
-			<div className="flex justify-between items-start mb-3">
+			<div className="flex justify-between items-start mb-1">
 				<MercerLogo className={getTextColor()} />
 				<div
 					className={`text-[20px] ${getTextColor()} font-normal leading-none tracking-[0.55px]`}
