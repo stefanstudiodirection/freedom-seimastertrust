@@ -125,7 +125,7 @@ export const HomeDark: React.FC = () => {
               <AccountCard
                 type="current"
                 accountName="Current Account"
-                subtitle="Funds available to spend"
+                subtitle=""
                 balance={formatBalance(accounts.currentAccount.balance)}
                 onClick={() => navigate('/account/currentAccount')}
               />
