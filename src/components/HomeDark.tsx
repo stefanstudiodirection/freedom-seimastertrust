@@ -87,14 +87,14 @@ export const HomeDark: React.FC = () => {
 
         <main className="w-full mt-4 px-4">
           <div className="mb-6">
-            <CreditCard
+            {/* <CreditCard
               cardholderName="Peter Smith"
               cardNumber="4562"
               validUntil="04/28"
               cvv="***"
               bankName="Mercer"
               cardType="freedom"
-            />
+            /> */}
             <div className="mt-4">
               <AccountActions actions={currentAccountActions} />
             </div>
