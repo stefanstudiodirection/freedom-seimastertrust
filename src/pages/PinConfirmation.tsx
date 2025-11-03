@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ArrowLeft, Delete } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useAccounts, AccountType } from '@/contexts/AccountContext';
 import { useToast } from '@/hooks/use-toast';
 
@@ -68,32 +68,37 @@ export const PinConfirmation: React.FC = () => {
     }
   }, [pin, amount, sourceAccount, destinationAccount, currency, transferFunds, navigate, toast]);
 
-  const handleNumberClick = (num: string) => {
-    const currentIndex = pin.findIndex(digit => digit === '');
-    if (currentIndex !== -1) {
+  const handleInputChange = (index: number, value: string) => {
+    // Only allow digits
+    const digit = value.replace(/[^0-9]/g, '').slice(-1);
+    
+    if (digit) {
       const newPin = [...pin];
-      newPin[currentIndex] = num;
+      newPin[index] = digit;
       setPin(newPin);
-      setFocusedIndex(Math.min(currentIndex + 1, 3));
       
-      // Focus next input
-      if (currentIndex < 3) {
-        inputRefs.current[currentIndex + 1]?.focus();
+      // Auto-focus next input
+      if (index < 3) {
+        inputRefs.current[index + 1]?.focus();
       }
     }
   };
 
-  const handleBackspace = () => {
-    const lastFilledIndex = pin.reduce((lastIndex, digit, index) => 
-      digit !== '' ? index : lastIndex
-    , -1);
-
-    if (lastFilledIndex !== -1) {
+  const handleKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Backspace') {
+      e.preventDefault();
       const newPin = [...pin];
-      newPin[lastFilledIndex] = '';
-      setPin(newPin);
-      setFocusedIndex(lastFilledIndex);
-      inputRefs.current[lastFilledIndex]?.focus();
+      
+      if (pin[index]) {
+        // Clear current field
+        newPin[index] = '';
+        setPin(newPin);
+      } else if (index > 0) {
+        // Move to previous field and clear it
+        newPin[index - 1] = '';
+        setPin(newPin);
+        inputRefs.current[index - 1]?.focus();
+      }
     }
   };
 
@@ -102,18 +107,6 @@ export const PinConfirmation: React.FC = () => {
       state: { amount, sourceAccount, destinationAccount, currency } 
     });
   };
-
-  const numberButtons = [
-    { num: '1', letters: '' },
-    { num: '2', letters: 'ABC' },
-    { num: '3', letters: 'DEF' },
-    { num: '4', letters: 'GHI' },
-    { num: '5', letters: 'JKL' },
-    { num: '6', letters: 'MNO' },
-    { num: '7', letters: 'PQRS' },
-    { num: '8', letters: 'TUV' },
-    { num: '9', letters: 'WXYZ' },
-  ];
 
   return (
     <div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto flex flex-col">
@@ -141,56 +134,25 @@ export const PinConfirmation: React.FC = () => {
               <input
                 key={index}
                 ref={el => inputRefs.current[index] = el}
-                type="text"
-                inputMode="none"
+                type="password"
+                inputMode="numeric"
                 value={digit}
-                readOnly
+                maxLength={1}
+                onChange={(e) => handleInputChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                onFocus={() => setFocusedIndex(index)}
                 className={`w-16 h-16 text-center text-2xl font-medium bg-white dark:bg-[#211E1E] rounded-lg border-2 transition-all duration-200 ${
                   isError 
                     ? 'border-destructive' 
                     : focusedIndex === index 
                       ? 'border-[#A488F5]' 
                       : 'border-border'
-                } ${digit ? 'text-foreground' : 'text-transparent'}`}
-                onFocus={() => setFocusedIndex(index)}
+                }`}
               />
             ))}
           </div>
         </div>
 
-        {/* Numeric Keypad */}
-        <div className="bg-white dark:bg-[#1a1818] rounded-3xl p-4 shadow-lg">
-          <div className="grid grid-cols-3 gap-3 mb-3">
-            {numberButtons.map(({ num, letters }) => (
-              <button
-                key={num}
-                onClick={() => handleNumberClick(num)}
-                className="h-16 bg-white dark:bg-[#211E1E] hover:bg-gray-50 dark:hover:bg-[#2a2626] rounded-xl flex flex-col items-center justify-center transition-colors border border-border"
-              >
-                <span className="text-2xl font-medium text-foreground">{num}</span>
-                {letters && <span className="text-xs text-muted-foreground">{letters}</span>}
-              </button>
-            ))}
-          </div>
-          
-          {/* Bottom row with 0 and backspace */}
-          <div className="grid grid-cols-3 gap-3">
-            <div></div>
-            <button
-              onClick={() => handleNumberClick('0')}
-              className="h-16 bg-white dark:bg-[#211E1E] hover:bg-gray-50 dark:hover:bg-[#2a2626] rounded-xl flex items-center justify-center transition-colors border border-border"
-            >
-              <span className="text-2xl font-medium text-foreground">0</span>
-            </button>
-            <button
-              onClick={handleBackspace}
-              className="h-16 bg-white dark:bg-[#211E1E] hover:bg-gray-50 dark:hover:bg-[#2a2626] rounded-xl flex items-center justify-center transition-colors border border-border"
-              aria-label="Backspace"
-            >
-              <Delete className="w-6 h-6 text-foreground" />
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
