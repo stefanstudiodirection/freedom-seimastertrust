@@ -23,16 +23,16 @@ const navItems: NavItem[] = [
     icon: <ArrowUpDown className="w-6 h-6" />,
   },
   {
+    id: "budgeting",
+    label: "Content hub",
+    path: "/budgeting",
+    icon: <ChartPieIcon className="w-6 h-6" />,
+  },
+  {
     id: "learn",
     label: "Learn",
     path: "/learn",
     icon: <BookOpen className="w-6 h-6" />,
-  },
-  {
-    id: "budgeting",
-    label: "Budgeting",
-    path: "/budgeting",
-    icon: <ChartPieIcon className="w-6 h-6" />,
   },
   {
     id: "profile",
