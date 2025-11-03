@@ -104,7 +104,7 @@ export const HomeDark: React.FC = () => {
             <AccountCard
               type="pension"
               accountName="Pension"
-              subtitle="Your Pension and Investments"
+              subtitle=""
               balance={formatBalance(accounts.pension.balance)}
               onClick={() => navigate('/account/pension')}
             />
@@ -113,7 +113,7 @@ export const HomeDark: React.FC = () => {
               <AccountCard
                 type="savings"
                 accountName="Savings"
-                subtitle="High Interest Savings (Tax Free)"
+                subtitle=""
                 balance={formatBalance(accounts.savings.balance)}
                 onClick={() => navigate('/account/savings')}
               />
