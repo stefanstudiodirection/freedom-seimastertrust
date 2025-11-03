@@ -102,7 +102,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({
 							onClick();
 						}}
 					>
-						<div className="w-10 h-10 bg-black flex items-center justify-center rounded">
+						<div className="w-10 h-10 bg-black flex items-center justify-center rounded-full">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="20"
