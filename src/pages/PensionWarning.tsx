@@ -1,123 +1,148 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, AlertTriangle, TrendingDown, CreditCard, PieChart, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { StatusBar } from '@/components/StatusBar';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+	ArrowLeft,
+	AlertTriangle,
+	TrendingDown,
+	CreditCard,
+	PieChart,
+	ExternalLink,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { StatusBar } from "@/components/StatusBar";
 
 export const PensionWarning: React.FC = () => {
-  const navigate = useNavigate();
-  const [dontShowAgain, setDontShowAgain] = useState(false);
+	const navigate = useNavigate();
+	const [dontShowAgain, setDontShowAgain] = useState(false);
 
-  const handleBack = () => {
-    navigate('/');
-  };
+	const handleBack = () => {
+		navigate("/");
+	};
 
-  const handleContinue = () => {
-    if (dontShowAgain) {
-      localStorage.setItem('hidePensionWarning', 'true');
-    }
-    navigate('/move-funds', { 
-      state: { 
-        sourceAccount: 'pension', 
-        destinationAccount: 'savings' 
-      } 
-    });
-  };
+	const handleContinue = () => {
+		if (dontShowAgain) {
+			localStorage.setItem("hidePensionWarning", "true");
+		}
+		navigate("/move-funds", {
+			state: {
+				sourceAccount: "pension",
+				destinationAccount: "savings",
+			},
+		});
+	};
 
-  const handleLearnMore = () => {
-    // Open educational content
-    console.log('Opening educational content');
-  };
+	const handleLearnMore = () => {
+		// Open educational content
+		console.log("Opening educational content");
+	};
 
-  return (
-    <div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto flex flex-col">
-      {/* <StatusBar /> */}
-      
-      <div className="px-4 py-6 flex flex-col flex-1">
-        {/* Header */}
-        <header className="flex items-center mb-8">
-        <button 
-          onClick={handleBack}
-          className="w-12 h-12 rounded-full bg-white dark:bg-[#211E1E] border border-border flex items-center justify-center hover:bg-gray-50 dark:hover:bg-[#2a2626] transition-colors text-foreground"
-          aria-label="Go back"
-        >
-          <ArrowLeft className="w-6 h-6" />
-        </button>
-        <h1 className="flex-1 text-center text-lg font-medium pr-12 text-foreground">Move funds</h1>
-      </header>
+	return (
+		<div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto flex flex-col">
+			{/* <StatusBar /> */}
 
-      {/* Warning Icon */}
-      <div className="flex justify-center mb-6">
-        <div className="w-20 h-20 bg-white dark:bg-[#211E1E] border border-border rounded-2xl flex items-center justify-center">
-          <div className="w-12 h-12 bg-[#E4B33D] rounded-lg flex items-center justify-center">
-            <AlertTriangle className="w-7 h-7 text-black" fill="black" />
-          </div>
-        </div>
-      </div>
+			<div className="px-4 py-6 flex flex-col flex-1">
+				{/* Header */}
+				<header className="flex items-center mb-8">
+					<button
+						onClick={handleBack}
+						className="w-12 h-12 rounded-full bg-white dark:bg-[#211E1E] border border-border flex items-center justify-center hover:bg-gray-50 dark:hover:bg-[#2a2626] transition-colors text-foreground"
+						aria-label="Go back"
+					>
+						<ArrowLeft className="w-6 h-6" />
+					</button>
+					<h1 className="flex-1 text-center text-lg font-medium pr-12 text-foreground">
+						Move funds
+					</h1>
+				</header>
 
-      {/* Main Heading */}
-      <h2 className="text-2xl font-normal text-center mb-8 leading-tight">
-        You're about to access your<br />pension early
-      </h2>
+				{/* Warning Icon */}
+				<div className="flex justify-center mb-6">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="32"
+						height="32"
+						viewBox="0 0 32 32"
+						fill="none"
+					>
+						<path
+							d="M29.6 23.5112L18.6687 4.52746C18.3956 4.06237 18.0056 3.67673 17.5375 3.40879C17.0694 3.14084 16.5394 2.99988 16 2.99988C15.4606 2.99988 14.9306 3.14084 14.4625 3.40879C13.9944 3.67673 13.6044 4.06237 13.3312 4.52746L2.4 23.5112C2.13717 23.9611 1.99866 24.4727 1.99866 24.9937C1.99866 25.5147 2.13717 26.0264 2.4 26.4762C2.66966 26.9441 3.05896 27.3318 3.52795 27.5996C3.99694 27.8674 4.52873 28.0056 5.06875 28H26.9312C27.4708 28.0051 28.0021 27.8667 28.4706 27.599C28.9391 27.3312 29.328 26.9437 29.5975 26.4762C29.8607 26.0266 29.9996 25.5151 30.0001 24.994C30.0005 24.473 29.8624 23.9613 29.6 23.5112ZM15 13C15 12.7347 15.1054 12.4804 15.2929 12.2929C15.4804 12.1053 15.7348 12 16 12C16.2652 12 16.5196 12.1053 16.7071 12.2929C16.8946 12.4804 17 12.7347 17 13V18C17 18.2652 16.8946 18.5195 16.7071 18.7071C16.5196 18.8946 16.2652 19 16 19C15.7348 19 15.4804 18.8946 15.2929 18.7071C15.1054 18.5195 15 18.2652 15 18V13ZM16 24C15.7033 24 15.4133 23.912 15.1666 23.7472C14.92 23.5823 14.7277 23.3481 14.6142 23.074C14.5006 22.7999 14.4709 22.4983 14.5288 22.2073C14.5867 21.9164 14.7296 21.6491 14.9393 21.4393C15.1491 21.2295 15.4164 21.0867 15.7074 21.0288C15.9983 20.9709 16.2999 21.0006 16.574 21.1141C16.8481 21.2277 17.0824 21.4199 17.2472 21.6666C17.412 21.9133 17.5 22.2033 17.5 22.5C17.5 22.8978 17.342 23.2793 17.0607 23.5606C16.7794 23.8419 16.3978 24 16 24Z"
+							fill="#E4B33D"
+						/>
+					</svg>
+				</div>
 
-      {/* Important Information Section */}
-      <div className="flex-1">
-        <h3 className="text-base font-normal mb-4">Important things to know:</h3>
-        
-        <div className="space-y-4 mb-6">
-          {/* Item 1 */}
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 flex-shrink-0">
-              <TrendingDown className="w-8 h-8 text-[#A488F5]" />
-            </div>
-            <p className="text-base pt-1">This will reduce your retirement savings</p>
-          </div>
+				{/* Main Heading */}
+				<h2 className="text-2xl font-normal text-center mb-8 leading-tight">
+					You're about to access your
+					<br />
+					pension early
+				</h2>
 
-          {/* Item 2 */}
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 flex-shrink-0">
-              <CreditCard className="w-8 h-8 text-[#A488F5]" />
-            </div>
-            <p className="text-base pt-1">Interest charges apply (3.9 APR)</p>
-          </div>
+				{/* Important Information Section */}
+				<div className="flex-1">
+					<h3 className="text-base font-normal mb-4">
+						Important things to know:
+					</h3>
 
-          {/* Item 3 */}
-          <div className="flex items-start gap-3">
-            <div className="w-8 h-8 flex-shrink-0">
-              <PieChart className="w-8 h-8 text-[#A488F5]" />
-            </div>
-            <p className="text-base pt-1">You can access up to 25% of pension</p>
-          </div>
-        </div>
+					<div className="space-y-4 mb-6">
+						{/* Item 1 */}
+						<div className="flex items-start gap-3">
+							<div className="w-8 h-8 flex-shrink-0">
+								<TrendingDown className="w-8 h-8 text-[#A488F5]" />
+							</div>
+							<p className="text-base pt-1">
+								This will reduce your retirement savings
+							</p>
+						</div>
 
-        <p className="text-sm text-[#716860] mb-6">
-          We'll show you the exact impact after you enter the amount on the review screen
-        </p>
+						{/* Item 2 */}
+						<div className="flex items-start gap-3">
+							<div className="w-8 h-8 flex-shrink-0">
+								<CreditCard className="w-8 h-8 text-[#A488F5]" />
+							</div>
+							<p className="text-base pt-1">Interest charges apply (3.9 APR)</p>
+						</div>
 
-        {/* Learn More Link */}
-        <button 
-          onClick={handleLearnMore}
-          className="w-auto inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded-md hover:bg-white/5 transition-colors mb-6"
-        >
-          <span className="text-sm">Learn more about this topic</span>
-          <ExternalLink className="w-4 h-4" />
-        </button>
-      </div>
+						{/* Item 3 */}
+						<div className="flex items-start gap-3">
+							<div className="w-8 h-8 flex-shrink-0">
+								<PieChart className="w-8 h-8 text-[#A488F5]" />
+							</div>
+							<p className="text-base pt-1">
+								You can access up to 25% of pension
+							</p>
+						</div>
+					</div>
 
-      {/* Bottom Actions */}
-      <div className="space-y-4 pt-4">
-        {/* Continue Button */}
-        <Button 
-          onClick={handleContinue}
-          className="w-full h-14 bg-[#A488F5] hover:bg-[#9575e8] text-black font-medium text-base rounded-xl"
-        >
-          I understand, continue
-        </Button>
-      </div>
-      </div>
-    </div>
-  );
+					<p className="text-sm text-[#716860] mb-6">
+						We'll show you the exact impact after you enter the amount on the
+						review screen
+					</p>
+
+					{/* Learn More Link */}
+					<button
+						onClick={handleLearnMore}
+						className="w-auto inline-flex items-center gap-2 px-6 py-3 border border-white/20 rounded-md hover:bg-white/5 transition-colors mb-6"
+					>
+						<span className="text-sm">Learn more about this topic</span>
+						<ExternalLink className="w-4 h-4" />
+					</button>
+				</div>
+
+				{/* Bottom Actions */}
+				<div className="space-y-4 pt-4">
+					{/* Continue Button */}
+					<Button
+						onClick={handleContinue}
+						className="w-full h-14 bg-[#A488F5] hover:bg-[#9575e8] text-black font-medium text-base rounded-xl"
+					>
+						I understand, continue
+					</Button>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default PensionWarning;
