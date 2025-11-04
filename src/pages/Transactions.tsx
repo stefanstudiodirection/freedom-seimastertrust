@@ -89,7 +89,7 @@ const Transactions: React.FC = () => {
 						<button
 							key={account}
 							onClick={() => setSelectedAccount(account)}
-							className={`px-4 py-2 rounded-lg text-sm font-normal transition-colors ${
+							className={`px-4 py-2 rounded-lg text-base font-normal transition-colors ${
 								selectedAccount === account
 									? "bg-[#A488F5] text-white"
 									: "bg-white dark:bg-[#1C1C1E] text-foreground"
