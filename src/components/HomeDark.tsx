@@ -53,12 +53,10 @@ export const HomeDark: React.FC = () => {
     gsap.fromTo(
       headerRef.current,
       {
-        y: -20,
-        opacity: 0,
+        y: "-100%",
       },
       {
-        y: 0,
-        opacity: 1,
+        y: "0%",
         duration: 0.4,
         ease: "power2.out",
       }
