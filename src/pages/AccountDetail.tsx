@@ -181,7 +181,7 @@ function getTransactionLabel(type: string) {
 function getMoveFundsButtonStyles(accountId: AccountType, accountColor: string) {
 	if (accountId === "pension") {
 		return {
-			className: "w-full py-3 rounded-lg mb-4 font-regular text-base flex items-center justify-center gap-2 bg-[#211E1E] text-white dark:bg-white dark:text-black",
+			className: "w-full py-4 rounded-lg mb-4 font-regular text-base flex items-center justify-center gap-2 bg-[#211E1E] text-white dark:bg-white dark:text-black",
 			style: {}
 		};
 	}
