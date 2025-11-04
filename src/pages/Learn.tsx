@@ -32,7 +32,7 @@ const Learn: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto p-4">
+    <div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto px-4 py-6">
       <div className="flex justify-between items-center mb-8">
 					<h1 className="text-[28px] font-semibold">Learning Resources</h1>
 					<div className="flex gap-3">
