@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Search } from 'lucide-react';
 import { LearningResourceCard } from '@/components/LearningResourceCard';
 import { BottomNavigation } from '@/components/BottomNavigation';
 
@@ -33,14 +33,14 @@ const Learn: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#F3F3F3] dark:bg-black text-foreground max-w-[480px] mx-auto p-4">
-      <button 
-        onClick={() => navigate(-1)} 
-        className="mb-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-black"
-        aria-label="Go back"
-      >
-        <ArrowLeft className="w-6 h-6" />
-      </button>
-      <h1 className="text-2xl font-semibold mb-4">Learning Resources</h1>
+      <div className="flex justify-between items-center mb-8">
+					<h1 className="text-[28px] font-semibold">Learning Resources</h1>
+					<div className="flex gap-3">
+						<button className="w-12 h-12 rounded-full bg-white dark:bg-[#1C1C1E] flex items-center justify-center">
+							<Search className="w-5 h-5" />
+						</button>
+					</div>
+				</div>
       
       <div className="grid grid-cols-2 gap-4 pb-4">
         {mockArticles.map((article) => (
