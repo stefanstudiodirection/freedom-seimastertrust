@@ -484,7 +484,7 @@ const Budgeting: React.FC = () => {
 						<SelectItem value="savings">
 							<div className="flex items-center gap-3">
 								<div
-									className="w-10 h-10 flex items-center justify-center rounded-[4px] bg-[#F3F3F3] dark:bg-black text-2xl"
+									className="w-10 h-10 flex items-center justify-center rounded-[4px] bg-black text-2xl"
 									style={{ color: accounts.savings.color }}
 								>
 									{accounts.savings.icon}
@@ -500,7 +500,7 @@ const Budgeting: React.FC = () => {
 						<SelectItem value="currentAccount">
 							<div className="flex items-center gap-3">
 								<div
-									className="w-10 h-10 flex items-center justify-center rounded-[4px] bg-[#F3F3F3] dark:bg-black text-2xl"
+									className="w-10 h-10 flex items-center justify-center rounded-[4px] bg-black text-2xl"
 									style={{ color: accounts.currentAccount.color }}
 								>
 									{accounts.currentAccount.icon}
