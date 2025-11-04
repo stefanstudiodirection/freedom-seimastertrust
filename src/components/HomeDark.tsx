@@ -87,7 +87,7 @@ export const HomeDark: React.FC = () => {
 
         <main className="w-full mt-4 px-4">
           <section aria-label="Account overview" className="w-full">
-            <div className="mb-[-24px]">
+            <div className="mb-[-32px]">
               <AccountCard
                 type="pension"
                 accountName="Pension"
@@ -97,7 +97,7 @@ export const HomeDark: React.FC = () => {
               />
             </div>
 
-            <div className="mb-[-24px]">
+            <div className="mb-[-32px]">
               <AccountCard
                 type="savings"
                 accountName="Savings"
