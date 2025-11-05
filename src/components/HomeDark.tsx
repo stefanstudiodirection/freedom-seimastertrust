@@ -24,12 +24,12 @@ const mockArticles = [
 	{
 		id: "2",
 		title: "Questions to ask about dawing down",
-		image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600",
+    image: "/content-hub/woman-with-smile.webp",
 	},
 	{
-		id: "3",
+    id: "3",
 		title: "The Secret to Growing Your Retirement Fund",
-		image: "/content-hub/woman-with-smile.webp",
+    image: "/content-hub/happy-couple.webp",
 	},
 	{
 		id: "4",
