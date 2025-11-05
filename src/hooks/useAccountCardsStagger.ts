@@ -7,17 +7,17 @@ export const useAccountCardsStagger = (
 ) => {
 	useGSAP(
 		() => {
-			const allCards = containerRef.current?.querySelectorAll(".account-card");
+			const cards = containerRef.current?.querySelectorAll(".account-card");
 
-			if (!allCards || allCards.length === 0) return;
+			if (!cards || cards.length === 0) return;
 
-			const cards = Array.from(allCards).slice(1);
+			// const cards = Array.from(allCards).slice(1);
 
 			if (cards.length === 0) return;
 
 			gsap.set(cards, {
 				// y: (index) => -65 * (index + 1), // 2. kartica: -65px, 3. kartica: -130px
-        y: 0,
+				y: (index) => 20 * (index + 1), // 2. kartica: -65px, 3. kartica: -130px
 			});
 
 			gsap.to(cards, {
