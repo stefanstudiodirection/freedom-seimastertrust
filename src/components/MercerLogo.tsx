@@ -3,7 +3,7 @@ export const MercerLogo = ({
 	style 
 }: { className?: string; style?: React.CSSProperties }) => (
 	<img
-		src="/sei-master-logo.svg"
+		src="/sei_white_logo.png"
 		alt="Sei master trust Logo"
 		width="75"
 		height="16"
