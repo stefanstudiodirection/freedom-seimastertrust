@@ -24,7 +24,7 @@ export const CreditCard: React.FC<CreditCardProps> = ({
 				<div className="flex items-center gap-2">
 					{/* Mercer Logo */}
 					<img
-						src="/sei-master-logo-dark.svg"
+						src="/sei_colour_logo.png"
 						alt="Sei master trust Logo"
 						width="75"
 						height="16"
